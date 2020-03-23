@@ -1,0 +1,35 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/blog
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 连接池配置
+      # 配置初始化大小、最小、最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      pool-prepared-statements: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      filters: stat,wall,slf4j
+#    配置国际化文件基本路径
+  messages:
+    basename: i18n/messages
+
+#头像图片路径设置
+comment.avatar: /images/avatar.png

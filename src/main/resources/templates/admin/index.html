@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragment:: head(~{::title})">
+  <title>博客管理</title>
+
+</head>
+<body>
+
+  <!--导航-->
+  <nav th:replace="admin/_fragment:: nav(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+
+  </nav>
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" class="item">发布</a>
+        <a href="#" class="teal active item">列表</a>
+      </div>
+    </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+      <div class="ui success large message">
+        <h3>你好</h3>
+        <p>欢迎登陆！</p>
+      </div>
+      <img src="" alt="" class="ui rounded bordered fluid image">
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <!--底部footer-->
+  <footer th:replace="admin/_fragment:: footer" class="ui inverted vertical segment m-padded-tb-massive">
+
+
+  </footer>
+
+  <!--/*/<th:block th:replace="_fragment:: script">/*/-->
+
+  <!--/*/</th:block>/*/-->
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+  </script>
+</body>
+</html>

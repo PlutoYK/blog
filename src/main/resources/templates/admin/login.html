@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragment:: head(~{::title})">
+  <title>博客管理登陆</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+  <div class="ur container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui image header">
+          <div class="content">
+            后台登陆
+          </div>
+        </h2>
+        <form class="ui large form" method="post" th:action="@{/admin/login}">
+          <div class="ui stacked segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" placeholder="用户名">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="密码">
+              </div>
+            </div>
+            <button class="ui fluid large teal submit button">登陆</button>
+          </div>
+
+          <div class="ui error mini message"></div>
+          <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">请输入用户名和密码</div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--/*/<th:block th:replace="_fragment:: script">/*/-->
+
+<!--/*/</th:block>/*/-->
+<script>
+  $('.ui.form').form({
+    fields : {
+      username : {
+        identifier: 'username',
+        rules: [{
+          type : 'empty',
+          prompt: '用户名为空'
+        }]
+      },
+      password : {
+        identifier: 'password',
+        rules: [{
+          type : 'empty',
+          prompt: '密码为空'
+        }]
+      }
+    }
+  });
+
+</script>
+</body>
+</html>

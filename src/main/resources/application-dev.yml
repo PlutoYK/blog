@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog
+    data-username: root
+    data-password: 123456
+  #    jpa配置
+  jpa:
+    hibernate:
+#       配置开启自动更新表结构
+      ddl-auto: update
+    show-sql: true
+
+logging:
+ level:
+  root: info
+  com.ykcoding: debug
+#  日志文件位置
+ file:
+   name: log/blog-dev.log
+server:
+  port: 8080
