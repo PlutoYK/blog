@@ -1,6 +1,6 @@
 # 关于项目
 
-该博客是基于springboot实现的一个个人博客系统，。
+该博客是基于springboot实现的一个个人博客系统。
 主要涉及技术包括的包括 springboot、JPA、Thymeleaf等。
 前端采用Semantic UI框架,有很多例子方便使用，具体参考以下网址<br/>
 官网地址：[https://semantic-ui.com/](https://semantic-ui.com/) <br/> 
