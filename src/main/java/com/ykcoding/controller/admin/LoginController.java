@@ -39,7 +39,7 @@ public class LoginController {
     /*
     用户退出功能
      */
-    @GetMapping("exit")
+    @GetMapping("/exit")
     public String exit(HttpSession session){
         session.invalidate();
         return "redirect:/admin";

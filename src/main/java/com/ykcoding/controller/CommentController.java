@@ -24,7 +24,7 @@ public class CommentController {
     @Value("${comment.avatar}")
     private String avatar;
 
-    @RequestMapping("/commments/{blogId}")
+    @RequestMapping("/comments/{blogId}")
     public String CommentList(@PathVariable Long blogId, Model model){
     model.addAttribute("comments",commentservice.ListCommentByBlogId(blogId));
     return "blog :: commentList";

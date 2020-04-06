@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragment :: head(~{::title})">
-
   <title>博客详情</title>
-
 </head>
 <body>
 
@@ -19,13 +17,13 @@
       <div class="ui horizontal link list">
         <div class="item">
           <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
-          <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}"></a></div>
+          <div class="content"><a href="#" th:href="@{/about}" class="header" th:text="${blog.user.nickname}"></a></div>
         </div>
         <div class="item">
           <i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
         </div>
         <div class="item">
-          <i class="eye icon"></i> <span th:text="${blog.views}"></span>
+          <i class="eye icon"></i> <span th:text="${blog.views}">2342</span>
         </div>
       </div>
     </div>
@@ -36,14 +34,13 @@
     <div class="ui  attached padded segment">
       <!--内容-->
       <div class="ui right aligned basic segment">
-        <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
+        <div class="ui orange basic label" th:text="${blog.flag}"></div>
       </div>
 
       <h2 class="ui center aligned header" th:text="${blog.title}"></h2>
       <br>
       <!--中间主要内容部分-->
       <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" th:utext="${blog.content}">
-
       </div>
 
       <!--标签-->
@@ -72,14 +69,15 @@
         </div>
       </div>
 
+
     </div>
     <div class="ui attached positive message" th:if="${blog.shareStatement}">
       <!--博客信息-->
       <div class="ui middle aligned grid">
         <div class="eleven wide column">
           <ui class="list">
-            <li>作者：<span th:text="${blog.user.nickname}"></span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
-            <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}"></span></li>
+            <li>作者：<span th:text="${blog.user.nickname}">李仁密</span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
+            <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:08</span></li>
             <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
             <li>公众号转载：请在文末添加作者公众号二维码</li>
           </ui>
@@ -89,7 +87,7 @@
         </div>
       </div>
     </div>
-    <div  class="ui bottom attached segment" th:if="${blog.commentabled}">
+    <div  class="ui bottom attached segment">
       <!--留言区域列表-->
       <div id="comment-container"  class="ui teal segment">
         <div th:fragment="commentList">
@@ -105,7 +103,7 @@
                   <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
                 </a>
                 <div class="metadata">
-                  <span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}"></span>
+                  <span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                 </div>
                 <div class="text" th:text="${comment.content}">
                   How artistic!
@@ -126,7 +124,7 @@
                       &nbsp;<span th:text="|@ ${reply.parentComment.nickname}|" class="m-teal"></span>
                     </a>
                     <div class="metadata">
-                      <span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}"></span>
+                      <span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                     </div>
                     <div class="text" th:text="${reply.content}">
                       How artistic!
@@ -138,61 +136,7 @@
                 </div>
               </div>
             </div>
-            <!--/*-->
-            <div class="comment">
-              <a class="avatar">
-                <img src="https://unsplash.it/100/100?image=1005">
-              </a>
-              <div class="content">
-                <a class="author">Elliot Fu</a>
-                <div class="metadata">
-                  <span class="date">Yesterday at 12:30AM</span>
-                </div>
-                <div class="text">
-                  <p>This has been very useful for my research. Thanks as well!</p>
-                </div>
-                <div class="actions">
-                  <a class="reply">回复</a>
-                </div>
-              </div>
-              <div class="comments">
-                <div class="comment">
-                  <a class="avatar">
-                    <img src="https://unsplash.it/100/100?image=1005">
-                  </a>
-                  <div class="content">
-                    <a class="author">Jenny Hess</a>
-                    <div class="metadata">
-                      <span class="date">Just now</span>
-                    </div>
-                    <div class="text">
-                      Elliot you are always so right :)
-                    </div>
-                    <div class="actions">
-                      <a class="reply">回复</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <a class="avatar">
-                <img src="https://unsplash.it/100/100?image=1005">
-              </a>
-              <div class="content">
-                <a class="author">Joe Henderson</a>
-                <div class="metadata">
-                  <span class="date">5 days ago</span>
-                </div>
-                <div class="text">
-                  Dude, this is awesome. Thanks so much
-                </div>
-                <div class="actions">
-                  <a class="reply">回复</a>
-                </div>
-              </div>
-            </div>
-            <!--*/-->
+
 
           </div>
         </div>
@@ -256,7 +200,14 @@
 </footer>
 
 <!--/*/<th:block th:replace="_fragment :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
 
+<script src="../static/lib/prism/prism.js"></script>
+<script src="../static/lib/tocbot/tocbot.min.js"></script>
+<script src="../static/lib/qrcode/qrcode.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"></script>
 <!--/*/</th:block>/*/-->
 
 
