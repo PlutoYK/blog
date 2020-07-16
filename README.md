@@ -2,11 +2,13 @@
 # 关于项目
 该博客是基于springboot实现的一个个人博客系统。主要涉及技术包括的包括springboot，MyBatis，Thymeleaf等
 
+
+
 **坚持不易，各位朋友如果觉得项目还不错的话可以给项目一个 star 吧，谢谢各位的支持。**
 
 
 ## 注意事项
-- **项目使用数据库为mysql，请确保数据库版本为5.x版本，8.x版本需要修改配置,对于MySQL8.x版本需要修改pom.xml里MySQL驱动版本和数据库驱动名称，具体为com.mysql.cj.jdbc.Driver**
+- **项目使用数据库为mysql，请确保数据库版本为5.x版本，8.x版本需要修改配置,对于MySQL8.x版本需要修改prepertis文件里MySQL驱动版本和数据库驱动名称，具体为com.mysql.cj.jdbc.Driver**
 - **数据库文件目录为```static-files/my_blog_db.sql```；**
 - **部署后你可以根据自己需求修改版权文案、logo 图片、备案记录等网站基础信息；**
 - **Blog 后台管理系统的默认登陆账号为 admin 默认登陆密码为 123456；**
